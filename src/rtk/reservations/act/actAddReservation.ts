@@ -4,10 +4,11 @@ import toast from "react-hot-toast";
 
 // Define a type for reservation data (adjust according to your API's requirements)
 interface ReservationData {
+  sessionTypeId: string;
+  date: string;
+  branchId: string;
+  time: string;
   doctorId: string;
-  patientName: string;
-  timeSlot: string;
-  // other fields...
 }
 
 const actAddReservation = createAsyncThunk(
@@ -51,5 +52,3 @@ const actAddReservation = createAsyncThunk(
 );
 
 export default actAddReservation;
-
-
