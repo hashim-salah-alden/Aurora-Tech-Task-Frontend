@@ -162,9 +162,9 @@ const Reservation = () => {
     const date = new Date(dateString);
 
     // Ensure the date is valid
-    if (isNaN(date)) {
-      throw new Error("Invalid date format");
-    }
+    // if (isNaN(date)) {
+    //   throw new Error("Invalid date format");
+    // }
 
     // Return the ISO 8601 string
     setDate(date.toISOString())
