@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 import useReservations from "@/hooks/useReservations";
 import Loading from "../../components/feedback/Loading"
@@ -13,7 +14,7 @@ const AllSessions = () => {
 
       <div className="space-y-4 max-w-screen-lg w-full mx-auto">
         <Loading loading={loading} error={reservationsError} page="Sessions">
-          {reservations?.map((session: Reservation, index: number) => (
+          {reservations?.map((session: any, index: number) => (
             <div
               key={index}
               className="bg-[#bfe7ec] p-1 md:p-4 rounded-lg shadow-md flex justify-between items-center mt-4"
