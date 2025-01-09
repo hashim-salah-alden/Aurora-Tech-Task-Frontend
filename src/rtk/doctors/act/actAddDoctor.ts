@@ -2,10 +2,26 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios, { AxiosError } from "axios";
 import toast from "react-hot-toast";
 
+
+interface Schedules {
+  branchId: string;
+  startingTime: string;
+  endingTime: string;
+  workingWeekdays: string[];
+}
+
+interface DoctorData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  phone: string;
+  schedules: Schedules[];
+}
+
 const actAddDoctor = createAsyncThunk(
   "doctors/actAddDoctor",
-
-  async (doctorData, thunkAPI) => {
+  async (doctorData: DoctorData, thunkAPI) => {
     const { rejectWithValue, signal } = thunkAPI;
     console.log(doctorData);
     try {
@@ -20,12 +36,10 @@ const actAddDoctor = createAsyncThunk(
       return res.data;
     } catch (error: unknown) {
       const errors = error as Error | AxiosError;
-      toast.error(errors.response.data.message[0]);
+      toast.error(errors.response?.data?.message[0]);
       if (!axios.isAxiosError(error)) {
         console.log(errors);
       }
-      // do what you want with your axios error
-
       return rejectWithValue(errors.message);
     }
   }
