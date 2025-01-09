@@ -248,8 +248,8 @@ const Reservation = () => {
                 defaultValue="DEFAULT"
                 onChange={(e) => {
                   setbranchId(e.target.value)
-                  setAvilabledoctorId("")
-                  setTimeRange("");
+                  setAvilabledoctorId([])
+                  setTimeRange([]);
                 }}
                 className="select select-bordered w-full"
               >
